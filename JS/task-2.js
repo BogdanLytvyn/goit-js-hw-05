@@ -1,31 +1,29 @@
-const inventory = {
-  items: ['Knife', 'Gas mask'],
-  add(itemName) {
-    console.log(`Adding ${itemName} to inventory`);
+class User {
+  constructor(user) {
+    this.name = user.name;
+    this.age = user.age;
+    this.follovers = user.followers;
+  }
 
-    this.items.push(itemName);
-  },
-  remove(itemName) {
-    console.log(`Removing ${itemName} from inventory`);
+  getInfo() {
+    console.log(
+      `User ${this.name} is ${this.age} years old and has ${this.followers} followers`,
+    );
+  }
+}
 
-    this.items = this.items.filter(item => item !== itemName);
-  },
-};
+const mango = new User({ name: 'Mango', age: 2, followers: 20 });
 
-const invokeInventoryAction = function (itemName, action) {
-  console.log(`Invoking action on ${itemName}`);
+mango.getInfo(); // User Mango is 2 years old and has 20 followers
 
-  action.call(inventory, itemName);
-};
+const poly = new User({ name: 'Poly', age: 3, followers: 17 });
 
-invokeInventoryAction('Medkit', inventory.add);
-// Invoking action on Medkit
-// Adding Medkit to inventory
+poly.getInfo(); // User Poly is 3 years old and has 17 followers
 
-console.log(inventory.items); // ['Knife', 'Gas mask', 'Medkit']
+// Напиши класс User для создания пользователя со следующим свойствами:
 
-invokeInventoryAction('Gas mask', inventory.remove);
-// Invoking action on Gas mask
-// Removing Gas mask from inventory
-
-console.log(inventory.items); // ['Knife', 'Medkit']
+// name - строка
+// age - число
+// followers - число
+// Добавь метод getInfo(), который, выводит строку: User ${ имя } is ${ возраст }
+// years old and has ${ кол - во фоловеров } followers
