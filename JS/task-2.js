@@ -20,6 +20,7 @@ const poly = new User({ name: 'Poly', age: 3, followers: 17 });
 
 poly.getInfo(); // User Poly is 3 years old and has 17 followers
 
+// =========================
 // Напиши класс User для создания пользователя со следующим свойствами:
 
 // name - строка
