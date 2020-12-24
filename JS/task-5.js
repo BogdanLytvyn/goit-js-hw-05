@@ -13,7 +13,7 @@ class Car {
   constructor(car) {
     this._speed = 0;
     this._price = car.price;
-    this._maxSpeed = car.maxspeed;
+    this._maxSpeed = car.maxSpeed;
     this._isOn = false;
     this._distance = 130;
   }
@@ -66,7 +66,7 @@ class Car {
   accelerate(value) {
     let bigSpeed = this._speed + value;
     if (bigSpeed <= this._maxSpeed) {
-      bigSpeed = bigSpeed;
+      this._speed = bigSpeed;
     }
   }
 
@@ -74,13 +74,22 @@ class Car {
    * Отнимает от свойства speed полученное значение,
    * при условии что результирующая скорость не меньше нуля
    */
-  decelerate(value) {}
+  decelerate(value) {
+    let lowSpeed = this._speed - value;
+    if (lowSpeed > 0) {
+      this._speed = lowSpeed;
+    }
+  }
 
   /*
    * Добавляет в поле distance киллометраж (hours * speed),
    * но только в том случае если машина заведена!
    */
-  drive(hours) {}
+  drive(hours) {
+    if (this._isOn) {
+      this._distance += this._speed * hours;
+    }
+  }
 }
 
 const mustang = new Car({ maxSpeed: 200, price: 2000 });
