@@ -12,9 +12,9 @@ class Storage {
   }
 
   removeItem(item) {
-    let product = this.items.indexOf(item);
-    if (product != -1) {
-      this.items.splice(product, 1);
+    let goods = this.items.indexOf(item);
+    if (goods != -1) {
+      this.items.splice(goods, 1);
     }
   }
 }

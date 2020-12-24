@@ -1,10 +1,6 @@
 const Account = function ({ login, email }) {
   this.login = login;
   this.email = email;
-
-  // this.getInfo = function () {
-  //   return console.log(login, email);
-  // };
 };
 
 Account.prototype.getInfo = function () {

@@ -2,7 +2,7 @@ class User {
   constructor(user) {
     this.name = user.name;
     this.age = user.age;
-    this.follovers = user.followers;
+    this.followers = user.followers;
   }
 
   getInfo() {
